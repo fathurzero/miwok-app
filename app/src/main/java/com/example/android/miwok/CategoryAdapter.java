@@ -8,9 +8,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentAdapter extends FragmentPagerAdapter {
+public class CategoryAdapter extends FragmentPagerAdapter {
+    private String tabTitles[] = new String[] { "Numbers", "Family", "Colors","Phrases" };
 
-    public  FragmentAdapter(FragmentManager fm) {
+    public CategoryAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -19,11 +20,11 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 //
         switch (position) {
             case 0:
-                return new ColorsFragment();
+                 return new NumbersFragment();
             case 1:
                 return new FamilyFragment();
             case 2:
-                return new NumbersFragment();
+                return new ColorsFragment();
             default:
                 return new PhrasesFragment();
 
@@ -36,4 +37,8 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         return 4;
     }
 
+    public CharSequence getPageTitle(int position){
+
+        return tabTitles[position];
+    }
 }
